@@ -2,7 +2,7 @@
     $conn = new mysqli("localhost", "root", "", "teste");
 
     $result = $conn->query("SELECT * FROM pessoas");
-    
+
 ?>
 
 <!DOCTYPE html>
@@ -17,12 +17,22 @@
     <table>
         <thead>
             <tr>
-                <td>Nome </td>
-                <td>Idede</td>
+                <td><h2>Nome</h2></td>
+                <td><h2>Idade</h2></td>
             </tr>
         </thead>
         <tbody>
-
+            <?php $linha = $result->fetch_assoc(); ?>
+            <td>
+                <?php
+                    echo $linha ['nome'];
+                ?>
+            </td>
+            <td>
+                <?php
+                    echo $linha ['idade'];
+                ?>
+            </td>
         </tbody>
     </table>
 </body>
