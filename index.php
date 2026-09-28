@@ -13,26 +13,40 @@
     <title>Teste</title>
 </head>
 <body>
-    <tr></tr>
+
     <table>
         <thead>
             <tr>
+                <!-- <td><h2>ID</h2></td> -->
                 <td><h2>Nome</h2></td>
                 <td><h2>Idade</h2></td>
+                <td><h2>ações</h2></td>
             </tr>
         </thead>
         <tbody>
-            <?php $linha = $result->fetch_assoc(); ?>
-            <td>
-                <?php
-                    echo $linha ['nome'];
-                ?>
-            </td>
-            <td>
-                <?php
-                    echo $linha ['idade'];
-                ?>
-            </td>
+            <?php while($linha = $result->fetch_assoc()){ ?>
+            <tr>
+                <!-- <td>
+                    <?php
+                        echo $linha ['id'];
+                    ?>
+                </td> -->
+                <td>
+                    <?php
+                        echo $linha ['nome'];
+                    ?>
+                </td>
+                <td>
+                    <?php
+                        echo $linha ['idade'];
+                    ?>
+                </td>
+                <td>
+                    <a href="editar.php?id=<?php echo $linha["id"];?>">Editar</a> <!--envia o id pelo methodo get -->
+                </td>
+            </tr>
+            <?php }?>
+            
         </tbody>
     </table>
 </body>
